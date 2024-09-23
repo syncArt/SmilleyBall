@@ -10,6 +10,7 @@ type LastContestResultType = {
   bandTitle: string;
   ratingScore: number;
   contestId: string;
+  contestDesc: string;
 };
 
 export const useLastContestResults = () => {
@@ -27,11 +28,12 @@ export const useLastContestResults = () => {
           bandTitle: topSongDetails.band_name,
           ratingScore: contestData.total_votes,
           contestId: contestData.contest_id,
+          contestDesc: contestData.contest_description
         });
         setIsLoading(false);
       });
     });
   }, []);
 
-  return {lastContestResults, isLoading};
+  return { lastContestResults, isLoading };
 };
